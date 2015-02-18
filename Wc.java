@@ -1,6 +1,5 @@
 import java.io.*;
 
-
 public class Wc{
 	private String str;
 	private String fileName;
@@ -10,11 +9,11 @@ public class Wc{
 		this.fileName = fileName;
 	}
 
-	public int getStringLength(String str){
+	public int getStringLength(){
 		return str.length();
 	}
 		
-	public int giveNumberOfWords(String str){
+	public int giveNumberOfWords(){
 		String[] contantWords =  str.split("\\s+");
 		int count = 0;
 		for(int i = 0; i < contantWords.length; i++)
@@ -23,7 +22,7 @@ public class Wc{
 		return contantWords.length - count;
 	}
 
-	public int giveNumberOfLines(String str){
+	public int giveNumberOfLines(){
 		String[] contantChars = str.split("");
 		int count = 0;
 		for (int i = 0; i < contantChars.length; i++) {
@@ -34,8 +33,8 @@ public class Wc{
 	}
 
 	public String toString(){
-		return "\t" + giveNumberOfLines(str) + "\t" + giveNumberOfWords(str) 
-		+ "\t" + getStringLength(str) + " " + fileName;
+		return "\t" + giveNumberOfLines() + "\t" + giveNumberOfWords() 
+		+ "\t" + getStringLength() + " " + fileName;
 	}
 }
 

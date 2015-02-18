@@ -6,24 +6,23 @@ public class WcTest{
 	String two = "my name is vijay pratap singh.\r\nwhat is your name?";
 	@Test
 	public void test_that_function_getStringLength_give_the_number_of_character_of_the_string(){
-		Wc w = new Wc(one);
-		// assertEquals(5, w.getStringLength("vijay"));
-		// assertEquals(0, w.getStringLength(""));
-		assertEquals(48, w.getStringLength(one));
-		// assertEquals(50, w.getStringLength(two));
+		Wc w = new Wc(one,"one");
+		assertEquals(48, w.getStringLength());
 	}
+	// @Test
+	// public void test_that_function_getStringLength_give_the_number_of_character_of_the_string_two(){
+	// 	Wc w = new Wc(two,"one");
+	// 	assertEquals(48, w.getStringLength());
+	// }
+
 	@Test
 	public void test_that_function_giveNumberOfWords_give_the_of_words_in_the_string(){
-		Wc w = new Wc(one);
-		// assertEquals(1, w.giveNumberOfWords("vijay"));
-		assertEquals(10, w.giveNumberOfWords(one));
-		// assertEquals(10, w.giveNumberOfWords(two));
+		Wc w = new Wc(one,"one");
+		assertEquals(10, w.giveNumberOfWords());
 	}
 	@Test
 	public void test_that_function_giveNumberOfLines_give_the_number_of_lines_in_the_string(){
-		Wc w = new Wc(one);
-		assertEquals(2,w.giveNumberOfLines(one));	
-		// assertEquals(1,w.giveNumberOfLines("vijay"));
-		// assertEquals(2,w.giveNumberOfLines(two));
+		Wc w = new Wc(one,"one");
+		assertEquals(2,w.giveNumberOfLines());	
 	}
 }
