@@ -9,20 +9,29 @@ public class WcTest{
 		Wc w = new Wc(one,"one");
 		assertEquals(48, w.getStringLength());
 	}
-	// @Test
-	// public void test_that_function_getStringLength_give_the_number_of_character_of_the_string_two(){
-	// 	Wc w = new Wc(two,"one");
-	// 	assertEquals(48, w.getStringLength());
-	// }
-
+	@Test
+	public void test_that_function_getStringLength_give_the_number_of_character_of_the_string_two(){
+		Wc w = new Wc(two,"one");
+		assertEquals(50, w.getStringLength());
+	}
 	@Test
 	public void test_that_function_giveNumberOfWords_give_the_of_words_in_the_string(){
 		Wc w = new Wc(one,"one");
 		assertEquals(10, w.giveNumberOfWords());
 	}
 	@Test
+	public void test_that_function_giveNumberOfWords_give_the_of_words_in_the_string_for_two(){
+		Wc w = new Wc(two,"one");
+		assertEquals(10, w.giveNumberOfWords());
+	}
+	@Test
 	public void test_that_function_giveNumberOfLines_give_the_number_of_lines_in_the_string(){
 		Wc w = new Wc(one,"one");
 		assertEquals(2,w.giveNumberOfLines());	
+	}
+	@Test
+	public void test_that_function_giveNumberOfLines_give_the_number_of_lines_in_the_string_two(){
+		Wc w = new Wc(two,"one");
+		assertEquals(1,w.giveNumberOfLines());	
 	}
 }

@@ -39,8 +39,8 @@ public class Wc{
 }
 
 class WcJava{
-	public static void main(String args[]) throws Exception { 
-		FileReader readFile = new FileReader(args[0]); 
+	public static String readFileContent(String file) throws Exception {
+		FileReader readFile = new FileReader(file); 
 		BufferedReader breakLines = new BufferedReader(readFile); 
 		String fileContent = ""; 
 		String readLines;
@@ -48,6 +48,21 @@ class WcJava{
 			fileContent += readLines + "\r\n";
 		} 
 		readFile.close();
+		return fileContent;
+	}
+
+	// public String[] allOption(String args[]){
+	// 	String[] options = new String[args.length];
+	// 	int count = 0;
+	// 	for (int i = 0;i < args.length; i++) {
+	// 		if(args[i].substring(0,1).equals("-"))
+	// 			options[count++] = args[i];
+	// 	}
+	// 	return options;
+	// }
+
+	public static void main(String args[]) throws Exception {
+		String fileContent = readFileContent(args[0]);
 		Wc w = new Wc(fileContent,args[0]);
 		System.out.println(w);
 	}
