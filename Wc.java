@@ -11,20 +11,40 @@ public class Wc{
 		this.options = options;
 	}
 
-	public int getStringLength(){
-		return str.length();
-	}
-		
-	public int giveNumberOfWords() {
-		return str.split("[ \t\n]").length;
+	public String giveMaximumLineInString(){
+		String[] devideByLines = str.split("\r\n");
+		String max = devideByLines[0];
+		for (int i = 0;i < devideByLines.length; i++) {
+			if(devideByLines[i].length() > max.length())
+				max = devideByLines[i];
+		}
+		return (max.length() + 1) + " " + max;
 	}
 
-	public int giveNumberOfLines(){
-		return str.split("\n").length;
+	public String giveManimunLineInString(){
+		String[] devideByLines = str.split("\r\n");
+		String max = devideByLines[0];
+		for (int i = 0;i < devideByLines.length; i++) {
+			if(devideByLines[i].length() < max.length())
+				max = devideByLines[i];
+		}
+		return (max.length() + 1) + " " + max;
+	}
+
+	public String getStringLength(){
+		return str.length() + "";
+	}
+		
+	public String giveNumberOfWords() {
+		return str.split("[ \t\n]").length + "";
+	}
+
+	public String giveNumberOfLines(){
+		return str.split("\n").length + "";
 	}
 
 	public int giveIndex(){
-		String[] allOptions = {"-l","-w","-c"};
+		String[] allOptions = {"-l","-w","-c","-L", "-S"};
 		for (int i = 0;i < allOptions.length; i++) {
 			if(allOptions[i].substring(0,2).equals(options))
 				return i;
@@ -33,7 +53,9 @@ public class Wc{
 	}
 
 	public String toString(){
-		int[] contantFunction = {giveNumberOfLines(),giveNumberOfWords(),getStringLength()};
+		String[] contantFunction = {giveNumberOfLines(),giveNumberOfWords(),getStringLength(),
+									giveMaximumLineInString(), giveManimunLineInString()};
+
 		if(options == null){
 			return "\t" + giveNumberOfLines() + "\t" + giveNumberOfWords() 
 				+ "\t" + getStringLength() + " " + fileName;
