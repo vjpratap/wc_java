@@ -1,0 +1,217 @@
+import java.io.*;
+
+// class Spickes{
+// 	public static void main(String args[]) throws Exception { 
+// 		FileReader fr = new FileReader("one.txt"); 
+// 		BufferedReader br = new BufferedReader(fr); 
+// 		String str=""; 
+// 		String s;
+// 		while((s = br.readLine()) != null) { 
+// 			str = str.concat(s)+"\n";
+// 		} 
+// 		fr.close();
+// 		System.out.println(str); 
+// 	}
+// }
+
+// class Testing{
+// 	private String first;
+// 	private String second;
+// 	private String third;
+// 	public Testing(String[] arguments){
+// 		this.first = arguments[0];
+// 		this.second = arguments[1];
+// 		this.third = arguments[2];
+// 	}
+// 	public String toString(){
+// 		return first + "  " + second + "  " + third;
+// 	}
+// }
+
+
+
+// class Spickes{
+
+// 	public static void main(String[] args) {
+// 		String[] names = {"vijay","poojag","superna","vikas"};
+// 		String max = "";
+// 		for (int i = 0;i < names.length; i++ ) {
+// 			if(names[i].length() > max.length())
+// 				max = names[i];
+// 		}
+// 		System.out.println(max);
+// 	}
+// }
+
+
+
+	// public String[] allOption(String args[]){
+	// 	String[] options = new String[args.length];
+	// 	int count = 0;
+	// 	for (int i = 0;i < args.length; i++) {
+	// 		if(args[i].substring(0,1).equals("-"))
+	// 			options[count++] = args[i];
+	// 	}
+	// 	return options;
+	// }
+
+
+
+
+
+// import java.io.*;
+
+// public class Wc{
+// 	private String str;
+// 	private String fileName;
+// 	private String options; 
+
+// 	public String readFileContent(String file){
+// 		try{
+// 			FileReader readFile = new FileReader(file); 
+// 			BufferedReader breakLines = new BufferedReader(readFile); 
+// 			String fileContent = ""; 
+// 			String readLines;
+// 			while((readLines = breakLines.readLine()) != null) { 
+// 				fileContent += readLines + "\r\n";
+// 			} 
+// 			readFile.close();
+// 			return fileContent;
+// 		}catch(Exception e){
+// 			return "invalidFile";
+// 		}
+// 	}
+
+// 	public Wc(String[] arguments) throws Exception {
+// 		this.str = readFileContent(arguments[0]);
+// 		this.fileName = arguments[0];
+// 		if(arguments.length > 1)
+// 			this.options = arguments[1];
+// 		else
+// 			this.options = null;
+// 	}
+
+// 	public int getStringLength(){
+// 		return str.length();
+// 	}
+		
+// 	public int giveNumberOfWords(){
+// 		String[] contantWords =  str.split("\\s+");
+// 		int count = 0;
+// 		for(int i = 0; i < contantWords.length; i++)
+// 			if(contantWords[i].equals(""))
+// 				count++;
+// 		return contantWords.length - count;
+// 	}
+
+// 	public int giveNumberOfLines(){
+// 		String[] contantChars = str.split("");
+// 		int count = 0;
+// 		for (int i = 0; i < contantChars.length; i++) {
+// 			if(contantChars[i].equals("\n"))
+// 				count++;
+// 		}
+// 		return count;
+// 	}
+
+// 	public int giveIndex(){
+// 		String[] allOptions = {"-l","-w","-c"};
+// 		for (int i = 0;i < allOptions.length; i++) {
+// 			if(allOptions[i].substring(0,2).equals(options))
+// 				return i;
+// 		}
+// 		return -1;
+// 	}
+
+// 	public String toString(){
+// 		int[] contantFunction = {giveNumberOfLines(),giveNumberOfWords(),getStringLength()};
+// 		String[] allOptions = {"-l","-w","-c"};
+// 		if(str == "invalidFile")
+// 			return "invalid file";
+// 		if(options == null){
+// 			return "\t" + giveNumberOfLines() + "\t" + giveNumberOfWords() 
+// 				+ "\t" + getStringLength() + " " + fileName;
+// 		}
+// 		if(giveIndex() == -1)
+// 			return "invalid option " + options.substring(1,2);
+// 		return "\t" + contantFunction[giveIndex()] + " " +fileName;
+// 	}
+// }
+
+// class WcJava{
+// 	public static void main(String args[]) throws Exception{
+// 		Wc w = new Wc(args);
+// 		System.out.println(w);
+// 	}
+// }	
+
+
+
+// ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+
+// import org.junit.Test;
+// import static org.junit.Assert.*;
+
+// public class WcTest{
+// 	String oneTxt = "hello, this is a good day.\r\nWhat do you think?\r\n";
+// 	String twoTxt = "my name is vijay pratap singh.\r\nwhat is your name?\r\n";
+// 	@Test
+// 	public void test_that_function_getStringLength_give_the_number_of_character_of_the_string() throws Exception{
+// 		String one[] ={"one.txt"};
+// 		Wc w = new Wc(one);
+// 		assertEquals(48, w.getStringLength());
+// 	}
+// 	@Test
+// 	public void test_that_function_getStringLength_give_the_number_of_character_of_the_string_two() throws Exception {
+// 		String two[] ={"two.txt"};
+// 		Wc w = new Wc(two);
+// 		assertEquals(52, w.getStringLength());
+// 	}
+// 	@Test
+// 	public void test_that_function_giveNumberOfWords_give_the_of_words_in_the_string()throws Exception{
+// 		String one[] ={"one.txt"};
+// 		Wc w = new Wc(one);
+// 		assertEquals(10, w.giveNumberOfWords());
+// 	}
+// 	@Test
+// 	public void test_that_function_giveNumberOfWords_give_the_of_words_in_the_string_for_two() throws Exception {
+// 		String two[] ={"two.txt"};
+// 		Wc w = new Wc(two);
+// 		assertEquals(10, w.giveNumberOfWords());
+// 	}
+// 	@Test
+// 	public void test_that_function_giveNumberOfLines_give_the_number_of_lines_in_the_string()throws Exception{
+// 		String one[] ={"one.txt"}; 	
+// 		Wc w = new Wc(one);
+// 		assertEquals(2,w.giveNumberOfLines());	
+// 	}
+// 	@Test
+// 	public void test_that_function_giveNumberOfLines_give_the_number_of_lines_in_the_string_two() throws Exception {
+// 		String two[] ={"two.txt"};
+// 		Wc w = new Wc(two);
+// 		assertEquals(2,w.giveNumberOfLines());	
+// 	}
+// 	@Test
+// 	public void test_that_function_readFileContent_give_the_content_of_the_file_or_not() throws Exception {
+// 		String one[] = {"one.txt"};
+// 		Wc w = new Wc(one);
+// 		assertEquals(oneTxt, w.readFileContent("one.txt"));
+// 	}
+// 	@Test
+// 	public void test_that_function_readFileContent_give_the_content_of_the_file_or_not_for_two() throws Exception {
+// 		String one[] = {"two.txt"};
+// 		Wc w = new Wc(one);
+// 		assertEquals(twoTxt, w.readFileContent("two.txt"));
+// 	}
+// 	@Test
+// 	public void test_that_function_readFileContent_give_the_content_of_the_file_or_not_for_invalid_file() throws Exception {
+// 		String one[] = {"two.tdxt"};
+// 		Wc w = new Wc(one);
+// 		assertEquals("invalidFile", w.readFileContent("two.tdxt"));
+// 	}
+// }
+
+
+
